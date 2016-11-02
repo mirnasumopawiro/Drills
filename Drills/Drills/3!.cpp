@@ -89,7 +89,7 @@ public:
     {
         return name;
     }
-    Author getAuthor()//HELP
+    Author getAuthor()
     {
         return *authors;
     }
@@ -109,9 +109,9 @@ public:
     {
         this->price = price;
     }
-    string toString(string name, Author authors, double price, int qty)
+    string toString()
     {
-        return "Book title: " + name + "\n" + authors.toString() + "\nPrice: " + to_string(price) + "\nQuantity: " + to_string(qty) + "\n";
+        return "Book title: " + name + "\n" + authors[0].toString() + authors[1].toString() + "\nPrice: " + to_string(price) + "\nQuantity: " + to_string(qty) + "\n";
     }
     string getAuthorNames()
     {
@@ -121,11 +121,47 @@ public:
 
 int main()
 {
-    Author authors[2] = {Author("Mirna", "mirna@mirna.com", "F"), Author("Vero", "vero", "vero@vero.cem", "F");
+    string name;
+    string email;
+    string bookName;
+    string name2;
+    string email2;
+    string bookName2;
+    char gender;
+    char gender2;
+    int qty;
+    double price;
     
-        Book data = {"Titel", 50.00, 3};
-        
-        cout << data.to_string());
+    cout << "Please enter the authors' details" << endl;
+    cout << "First Author" << endl;
+    cout << "Name: " << endl;
+    cin >> name;
+    cout << "Email: " << endl;
+    cin >> email;
+    cout << "Gender (M/F): " << endl;
+    cin >> gender;
+    cout << "Second Author" << endl;
+    cout << "Name: " << endl;
+    cin >> name2;
+    cout << "Email: " << endl;
+    cin >> email2;
+    cout << "Gender (M/F): " << endl;
+    cin >> gender2;
+    
+    cout << "Please enter the book's details" << endl;
+    cout << "Book name: " << endl;
+    cin >> bookName;
+    cout << "Price: " << endl;
+    cin >> price;
+    cout << "Quantity: " << endl;
+    cin >> qty;
+    cout << endl;
+    
+    Author authors[2] = {Author(name, email, gender), Author(name2, email2, gender2)};
+    Book book (bookName, authors, price, qty);
+    
+    cout << book.toString();
+    cout << book.getAuthorNames();
 }
 
 
