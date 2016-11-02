@@ -59,21 +59,29 @@ class Book
 {
 private:
     string name;
-    Author authors[2];
+    Author *authors;
     double price;
     int qty;
 public:
-    Book (string name, Author authors[2], double price)
+    Book (string name, Author authors[], double price)
     {
         this->name = name;
-        this->authors[2] = authors[2];
-        this-price = price
+        this->authors = new Author[2];
+        for (int i = 0; i < 2; i++)
+        {
+            this-> authors[i] = authors[i];
+        }
+        this->price = price;
         qty = 0;
     }
-    Book (string name, Author author[2], double price, int qty)
+    Book (string name, Author author[], double price, int qty)
     {
         this->name = name;
-        this->authors[2] = authors[2];
+        this->authors = new Author[2];
+        for (int i = 0; i < 2; i++)
+        {
+            this-> authors[i] = authors[i];
+        }
         this->price = price;
         this->qty = qty;
     }
@@ -81,7 +89,10 @@ public:
     {
         return name;
     }
-    Author getAuthors
+    Author getAuthor()//HELP
+    {
+        return *authors;
+    }
     double getPrice()
     {
         return price;
@@ -92,16 +103,30 @@ public:
     }
     void setQty(int qty)
     {
-        qty = qty;
+        this->qty = qty;
     }
-    string toString(name, authors, price, qty)
+    void setPrice (double price)
     {
-        return "Book title: " + name + "\n" + authors.toString + "\nPrice: " + price + "\nQuantity: " + qty + "\n";
+        this->price = price;
+    }
+    string toString(string name, Author authors, double price, int qty)
+    {
+        return "Book title: " + name + "\n" + authors.toString() + "\nPrice: " + to_string(price) + "\nQuantity: " + to_string(qty) + "\n";
+    }
+    string getAuthorNames()
+    {
+        return authors[0].getName() + " & " + authors[1].getName();
     }
 };
 
-
-
+int main()
+{
+    Author authors[2] = {Author("Mirna", "mirna@mirna.com", "F"), Author("Vero", "vero", "vero@vero.cem", "F");
+    
+        Book data = {"Titel", 50.00, 3};
+        
+        cout << data.to_string());
+}
 
 
 
