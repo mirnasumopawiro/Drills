@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Author
@@ -44,14 +45,31 @@ public:
         return gender;
     }
     
-    string toString()
+    string toString(string name, string email, char gender)
     {
-        string message;
-        return message;
+        return "Name: " + name + "\nEmail: " + email + "\nGender: " + gender + "\n";
     }
 };
 
-
+int main()
+{
+    string name;
+    string email;
+    char gender;
+    
+    cout << "Enter the author's details: \n";
+    cout << "Name: " << endl;
+    cin >> name;
+    cout << "Email: " << endl;
+    cin >> email;
+    cout << "Gender (M/F): ";
+    cin >> gender;
+    
+    
+    Author data {name, email, gender};
+    
+    cout << data.toString(name, email, gender);
+}
 
 
 
